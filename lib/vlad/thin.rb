@@ -32,8 +32,8 @@ configuration is set via the thin_* variables.".cleanup
            "-e #{thin_environment}",
            "-c #{current_path}",
            "-C #{thin_conf}",
-           ("-a #{thin_address}" if thin_address)
-           ("-R #{thin_rackup}" if thin_rackup )
+           ("-a #{thin_address}" if thin_address),
+           ("-R #{thin_rackup}" if thin_rackup ),
            ("-P #{thin_pid_file}" if thin_pid_file),
            ("-l #{thin_log_file}" if thin_log_file),
            ("--user #{thin_user}" if thin_user),
@@ -52,12 +52,20 @@ configuration is set via the thin_* variables.".cleanup
   desc "Restart the app servers"
 
   remote_task :start_app, :roles => :app do
-    run thin("restart -s #{thin_servers}")
+    if (use_sudo)
+      sudo thin("restart -s #{thin_servers}")
+    else
+      run thin("restart -s #{thin_servers}")
+    end
   end
 
   desc "Stop the app servers"
 
   remote_task :stop_app, :roles => :app do
-    run thin("stop -s #{thin_servers}")
+    if (use_sudo)
+      sudo thin("stop -s #{thin_servers}")
+    else
+      run thin("stop -s #{thin_servers}")
+    end
   end
 end
