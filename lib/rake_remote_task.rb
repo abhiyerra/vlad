@@ -96,6 +96,13 @@ def target_host
   Thread.current[:task].target_host
 end
 
+##
+# Execute the given command with sudo on the <tt>target_host</tt>
+# for the current task.
+def sudo *args, &b
+  Thread.current[:task].sudo(*args, &b)
+end
+
 if Gem::Version.new(RAKEVERSION) < Gem::Version.new('0.8') then
   class Rake::Task
     alias vlad_original_execute execute
