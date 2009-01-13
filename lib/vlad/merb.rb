@@ -14,9 +14,12 @@ namespace :vlad do
   remote_task :stop_app, :roles => [:app] do
     run merb("-K all")
   end
+
   remote_task :start_app, :roles => [:app] do
     run merb('')
   end
+  
+  remote_task :start_app => :stop_app
 
   remote_task :symlink_configs, :roles => [:app] do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml && mkdir -p #{release_path}/tmp/cache"
