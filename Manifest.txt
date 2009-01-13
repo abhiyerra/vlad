@@ -18,6 +18,8 @@ lib/vlad/maintenance.rb
 lib/vlad/merb.god.rb
 lib/vlad/mercurial.rb
 lib/vlad/mongrel.rb
+lib/vlad/merb.rb
+lib/vlad/merb.god.rb
 lib/vlad/nginx.rb
 lib/vlad/perforce.rb
 lib/vlad/subversion.rb
