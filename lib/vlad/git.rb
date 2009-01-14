@@ -12,7 +12,8 @@ class Vlad::Git
     destination = 'cached-copy' if destination == '.'
     revision = 'HEAD' if revision =~ /head/i
 
-    [ "([ -d #{destination}/.git ] && echo 'Existing repository found' || #{git_cmd} clone #{code_repo} #{destination})",
+    [ "rm -rf #{destination}",
+      "#{git_cmd} clone #{code_repo} #{destination}",
       "cd #{destination}",
       "#{git_cmd} fetch",
       "#{git_cmd} reset --hard #{revision}",
