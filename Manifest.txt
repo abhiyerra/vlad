@@ -13,14 +13,15 @@ lib/vlad.rb
 lib/vlad/apache.rb
 lib/vlad/core.rb
 lib/vlad/git.rb
+lib/vlad/glassfish.rb
 lib/vlad/lighttpd.rb
 lib/vlad/maintenance.rb
 lib/vlad/merb.god.rb
+lib/vlad/merb.rb
 lib/vlad/mercurial.rb
 lib/vlad/mongrel.rb
-lib/vlad/merb.rb
-lib/vlad/merb.god.rb
 lib/vlad/nginx.rb
+lib/vlad/passenger.rb
 lib/vlad/perforce.rb
 lib/vlad/subversion.rb
 lib/vlad/thin.rb
@@ -32,4 +33,5 @@ test/test_vlad_mercurial.rb
 test/test_vlad_perforce.rb
 test/test_vlad_subversion.rb
 test/vlad_test_case.rb
+vlad.gemspec
 vladdemo.sh
